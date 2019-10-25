@@ -1,0 +1,56 @@
+{
+  "name": "frc-core",
+  "version": "1.0.0",
+  "description": "project initial",
+  "main": "index.js",
+  "module": "index.d.ts",
+  "scripts": {
+    "build": "tsc && gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-Long/frc-core.git"
+  },
+  "author": "Paul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Paul-Long/frc-core/issues"
+  },
+  "homepage": "https://github.com/Paul-Long/frc-core#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.3.1",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/react-redux": "7.1.0",
+    "@types/react-router-dom": "4.3.1",
+    "history": "4.7.2",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "15.6.2",
+    "react-redux": "7.1.0",
+    "react-router-dom": "4.3.1",
+    "redux": "4.0.1",
+    "redux-saga": "0.16.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-less": "^4.0.1",
+    "less": "^2.7.3",
+    "prettier": "^1.18.2",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
+    "shelljs": "^0.8.3",
+    "typescript": "^3.3.3"
+  },
+  "peerDependencies": {
+    "react": "16.8.4",
+    "react-dom": "16.8.4"
+  }
+}

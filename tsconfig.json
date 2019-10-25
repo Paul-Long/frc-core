@@ -1,0 +1,42 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "declaration": true,
+    "strict": true,
+    "outDir": "build/dist/",
+    "module": "esnext",
+    "target": "es2016",
+    "lib": ["es6", "dom"],
+    "sourceMap": false,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "rootDirs": ["app"],
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowJs": false,
+    "noImplicitThis": false,
+    "experimentalDecorators": true
+  },
+  "files": [
+    "index.ts",
+    "fetch.ts",
+    "router.ts"
+  ],
+  "include": [
+    "app/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "tslint:latest",
+    "tslint-config-prettier"
+  ]
+}
