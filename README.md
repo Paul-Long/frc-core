@@ -1,0 +1,2 @@
+# frc-core
+project initial
