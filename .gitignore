@@ -65,3 +65,4 @@ node_modules
 build/**/*
 dist/
 package/
+package-lock.json

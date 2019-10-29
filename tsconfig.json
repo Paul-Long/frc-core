@@ -11,7 +11,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "rootDirs": ["app"],
+    "rootDirs": ["src"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -20,13 +20,8 @@
     "noImplicitThis": false,
     "experimentalDecorators": true
   },
-  "files": [
-    "index.ts",
-    "fetch.ts",
-    "router.ts"
-  ],
   "include": [
-    "app/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
