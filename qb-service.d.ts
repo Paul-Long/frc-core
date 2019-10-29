@@ -1,1 +1,1 @@
-export * from './qb-service';
+export * from './src/qb-service';

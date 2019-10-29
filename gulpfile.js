@@ -6,7 +6,8 @@ const path = require('path');
 
 const content = fs.readFileSync(path.resolve(__dirname, './package.json'));
 let packageJson = JSON.parse(content);
-gulp.task('babel', function() {
+
+gulp.task('build-babel', function() {
   return gulp
     .src('build/dist/**/*.js', {base: 'build/dist/'})
     .pipe(
@@ -21,21 +22,31 @@ gulp.task('babel', function() {
     )
     .pipe(gulp.dest('package/lib/'));
 });
-gulp.task('files', function() {
-  gulp.src(['./*.js', './*.ts']).pipe(gulp.dest('package/'));
+gulp.task('copy-index', function() {
+  return gulp.src(['./*.js', './*.ts']).pipe(gulp.dest('package/'));
 });
 
-gulp.task('es', function() {
-  gulp
+gulp.task('copy-builder', function() {
+  return gulp.src(['builder/**/*'], {base: '.'}).pipe(gulp.dest('package/'));
+});
+
+gulp.task('copy-style', function() {
+  return gulp
+    .src(['src/style/**/*'], {base: 'src/'})
+    .pipe(gulp.dest('package/src/'));
+});
+
+gulp.task('copy-es', function() {
+  return gulp
     .src(['./build/dist/**/*.js', './build/dist/**/*.ts'])
     .pipe(gulp.dest('package/src/'));
 });
 
-gulp.task('readme', function() {
+gulp.task('copy-readme', function() {
   return gulp.src(['./README.md', './LICENSE']).pipe(gulp.dest('package/'));
 });
 
-gulp.task('package', function() {
+gulp.task('copy-package', function(done) {
   delete packageJson.scripts;
   packageJson.engines = {
     node: '>=8'
@@ -44,13 +55,16 @@ gulp.task('package', function() {
     path.resolve(__dirname, './package/package.json'),
     JSON.stringify(packageJson, null, 2)
   );
+  done();
 });
 
 gulp.task('build', (done) => {
-  shell.exec('gulp babel');
-  shell.exec('gulp es');
-  shell.exec('gulp files');
-  shell.exec('gulp readme');
-  shell.exec('gulp package');
+  shell.exec('gulp build-babel');
+  shell.exec('gulp copy-es');
+  shell.exec('gulp copy-index');
+  shell.exec('gulp copy-style');
+  shell.exec('gulp copy-builder');
+  shell.exec('gulp copy-readme');
+  shell.exec('gulp copy-package');
   done();
 });

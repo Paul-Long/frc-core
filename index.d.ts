@@ -17,3 +17,5 @@ export {
   DispatchProp,
   shallowEqual
 } from 'react-redux';
+import * as QBService from './src/qb-service';
+export {QBService};

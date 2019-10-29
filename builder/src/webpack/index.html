@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--<html-static-before-plugin>-->
+  <style>
+#app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.swc-loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swc-loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.swc-circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.path {
+  stroke-dasharray: 10, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 3s ease-in-out infinite;
+  stroke-linecap: round;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 10, 200;
+    stroke-dashoffset: 0;
+  }
+  25% {
+    stroke-dasharray: 30, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 50, 200;
+    stroke-dashoffset: -35px;
+  }
+  75% {
+    stroke-dasharray: 70, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+@keyframes color {
+  100%,
+  0% {
+    stroke: #136c5e;
+  }
+}
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="swc-loading">
+    <div class='swc-loading-container'>
+      <svg class='swc-circular' viewBox='25 25 50 50'>
+        <circle class='path' cx='50' cy='50' r='20' fill='none' stroke-width='3' stroke-miterlimit="10" />
+      </svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>
