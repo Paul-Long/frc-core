@@ -15,7 +15,8 @@ exports.printStats = function(err, stats) {
     console.log(chalk.red('Compiled Failure.\n'));
     return;
   }
-  let {assets, errors, warnings} = stats.toJson() || {};
+  let {assets, errors, warnings, time} = stats.toJson() || {};
+  console.log('Time : ' + chalk.default(time) + 'ms');
   assets = assets.map((asset) => {
     return {
       size: fileSize(asset.size),
