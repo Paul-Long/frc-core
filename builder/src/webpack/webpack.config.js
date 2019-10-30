@@ -43,7 +43,6 @@ exports = module.exports = function({
     process.cwd(),
     'node_modules/frc-core/src/style/ss-fonts/iconfont'
   );
-  console.log(antTheme);
   theme = Object.assign({}, antTheme, theme);
   function htmlOption(e) {
     return {

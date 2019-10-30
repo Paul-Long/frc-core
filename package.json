@@ -2,8 +2,8 @@
   "name": "frc-core",
   "version": "1.0.0-beta.3",
   "description": "project initial",
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "main": "index.js",
+  "module": "index.d.ts",
   "typings": "index.d.ts",
   "bin": {
     "frc": "./builder/bin/builder"
@@ -72,6 +72,7 @@
     "postcss-cli": "^6.0.0",
     "postcss-loader": "^3.0.0",
     "prop-types": "15.6.2",
+    "react-loadable": "^5.5.0",
     "react-redux": "7.1.0",
     "react-router-dom": "4.3.1",
     "redux": "4.0.1",
@@ -96,6 +97,7 @@
     "@types/js-base64": "^2.3.1",
     "@types/node": "^12.11.7",
     "@types/react-dom": "^16.9.3",
+    "@types/react-loadable": "^5.5.2",
     "@types/react-redux": "7.1.0",
     "@types/react-router-dom": "4.3.1",
     "gulp": "^4.0.2",

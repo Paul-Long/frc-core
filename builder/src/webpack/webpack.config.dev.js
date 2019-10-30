@@ -21,6 +21,18 @@ const config = {
           '^/cdbbond/api/': '/api/'
         }
       },
+      '/node/api': {
+        target: `http://qbweb.${BUILD_ENV}.sumscope.com:5100`,
+        pathRewrite: {
+          '^/node/api/': '/api/'
+        }
+      },
+      '/rum': {
+        target: 'http://172.16.66.182:5020'
+      },
+      '/workerbox': {
+        target: `http://qbweb.${BUILD_ENV}.sumscope.com:28888`
+      },
       '/web-library': {
         target: `http://qbweb.${BUILD_ENV}.sumscope.com:28888`
       }

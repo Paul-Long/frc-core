@@ -8,7 +8,7 @@ export {router};
 import * as fetch from 'isomorphic-fetch';
 export {fetch};
 
-export {
+import {
   connect,
   connectAdvanced,
   useSelector,
@@ -17,5 +17,14 @@ export {
   DispatchProp,
   shallowEqual
 } from 'react-redux';
+export {
+  connect,
+  connectAdvanced,
+  useSelector,
+  useDispatch,
+  useStore,
+  DispatchProp,
+  shallowEqual
+};
 import * as QBService from './src/qb-service';
 export {QBService};
