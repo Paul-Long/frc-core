@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const Progress = require('webpack/lib/ProgressPlugin');
 const chalk = require('chalk');
+const ProgressBar = require('progress');
 const {printStats, getConfig, buildCharts} = require('../src');
 
 exports = module.exports = function(program) {
@@ -13,30 +14,22 @@ exports = module.exports = function(program) {
     );
   }
   const compiler = webpack(config.config);
+  const messageTemplate = [':bar', chalk.green(':percent'), ':msg'].join(' ');
+  const progressOptions = {
+    complete: chalk.bgGreen(' '),
+    incomplete: chalk.bgWhite(' '),
+    width: 40,
+    total: 100,
+    clear: false
+  };
+  const bar = new ProgressBar(messageTemplate, progressOptions);
   compiler.apply(
-    new Progress(function(percentage, msg, current, active, modulepath) {
-      modulepath = modulepath
-        ? ' …' + modulepath.substr(modulepath.length - 30)
-        : '';
-      current = current ? ' ' + current : '';
-      active = active ? ' ' + active : '';
-      console.log(
-        '[ ' +
-          chalk.redBright(Number(percentage * 100).toFixed(2) + '%') +
-          ' ] ' +
-          chalk.green(msg + ' ' + current + ' ' + active + ' ' + modulepath)
-      );
+    new Progress(function(percentage, msg) {
+      bar.update(percentage, {msg: msg});
     })
   );
   function done(err, stats) {
-    if (err) {
-      process.stdout.write(err + '\n');
-    } else {
-      printStats(stats);
-      // process.stdout.write(stats.toString() + '\n');
-    }
-    console.log(chalk.green('Compiled successfully.\n'));
-
+    printStats(stats);
     if (config.option) {
       buildCharts(config.option, function(code) {
         process.exit(code);

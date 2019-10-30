@@ -9,8 +9,14 @@ const _webpackConfig = require('./webpack/webpack.config');
 const _devWebpackConfig = require('./webpack/webpack.config.dev');
 const _prdWebpackConfig = require('./webpack/webpack.config.prd');
 
-exports.printStats = function(stats) {
-  const assets = stats.toJson().assets.map((asset) => {
+exports.printStats = function(err, stats) {
+  if (err) {
+    console.log(chalk.red(err));
+    console.log(chalk.red('Compiled Failure.\n'));
+    return;
+  }
+  let {assets, errors, warnings} = stats.toJson() || {};
+  assets = assets.map((asset) => {
     return {
       size: fileSize(asset.size),
       name: asset.name
@@ -24,6 +30,15 @@ exports.printStats = function(stats) {
     }
     console.log('  ' + size + '  ' + chalk.cyan(asset.name));
   });
+  console.log(chalk.yellow(` Warning (${(warnings || []).length})`));
+  (warnings || []).forEach((err) => console.log(chalk.yellow(err)));
+  if ((errors || []).length > 0) {
+    console.log(chalk.red(` Error (${(errors || []).length})`));
+    (errors || []).forEach((err) => console.log(chalk.red(err)));
+    console.log(chalk.red('Compiled Failure.\n'));
+    return;
+  }
+  console.log(chalk.green('Compiled Successfully.\n'));
 };
 
 exports.chartsOption = function(prefix, version) {};
