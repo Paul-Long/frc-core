@@ -48,6 +48,7 @@ exports.getConfig = function(program) {
   const allConfig = {
     babelImport: [
       [{libraryName: 'antd', style: true}, 'antd'],
+      [{libraryName: 'frc-ui', style: true}, 'frc-ui'],
       [{libraryName: 'lodash'}, 'lodash']
     ]
   };

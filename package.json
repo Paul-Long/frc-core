@@ -1,6 +1,6 @@
 {
   "name": "frc-core",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.13",
   "description": "project initial",
   "main": "index.js",
   "module": "index.d.ts",
@@ -112,7 +112,7 @@
     "typescript": "^3.3.3"
   },
   "peerDependencies": {
-    "react": "16.8.4",
-    "react-dom": "16.8.4"
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
   }
 }

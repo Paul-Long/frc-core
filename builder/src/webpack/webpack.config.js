@@ -12,6 +12,7 @@ const HappyThreadPool = HappyPack.ThreadPool({
 });
 
 const node_modules = resolve('./node_modules');
+const root = resolve(__dirname, '../../../');
 const antTheme = require('./ant');
 exports = module.exports = function({
   prefix,
@@ -175,7 +176,7 @@ exports = module.exports = function({
       new HtmlStaticBeforePlugin({...otherConfig[BUILD_ENV]}),
       new CopyWebpackPlugin([
         {
-          from: resolve(node_modules, 'ss-web-start/theme/'),
+          from: resolve(root, 'src/style/'),
           to: resolve(outputPath, `${asset}fonts`),
           ignore: ['*.less', '*.js']
         },

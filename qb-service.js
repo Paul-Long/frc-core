@@ -1,1 +1,2 @@
-module.exports = require('./lib/qb-service');
+const qb = require('./lib/qb-service');
+module.exports = qb;
