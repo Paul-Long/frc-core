@@ -76,11 +76,11 @@ exports = module.exports = function({
           use: 'happypack/loader?id=js'
         },
         {
-          test: /worker\.js$/,
+          test: /\.worker\.js$/,
           enforce: 'pre',
           use: {
             loader: 'worker-loader',
-            options: {name: `${asset}js/fetch-worker.[hash:8].js`}
+            options: {name: `${asset}js/worker.[hash:8].js`}
           }
         },
         {
