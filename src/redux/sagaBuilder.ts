@@ -111,7 +111,7 @@ function createOptions(
   extHeaders: object,
   payload: any
 ) {
-  let options: {headers?: object; body?: any; method: string} = {method};
+  let options: {headers?: object; body?: any; method: string, credentials: string} = {method, credentials: 'include'};
   options.headers = extHeaders || {
     Accept: 'application/json',
     'Content-Type':

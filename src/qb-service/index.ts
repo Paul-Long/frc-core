@@ -237,6 +237,24 @@ export const reqAttention = (success?: SuccessType, failure?: FailType) => {
   }
 };
 
+export const getSystemTime = (success?: SuccessType, failure?: FailType) => {
+  (window as any).tds_getSystemTime = function(result: any) {
+    var {time} = result || {};
+    typeof success === 'function' && (success as any)(time);
+  };
+  var reqStr = `["tds_req", [{"req": "eyJ0eXBlIjoidGRzLnJlcS5zeXN0ZW0udGltZSJ9", "callback": "${Base64.encode('tds_getSystemTime')}"}]]`;
+  api(
+    'getSystemTime',
+    reqStr,
+    (res) => {
+      console.log(res);
+    },
+    (code, message) => {
+      console.log(code, message);
+    }
+  );
+};
+
 export const reqMemberInfo = (callback: any, timeout: any) => {
   let timer: any;
 
