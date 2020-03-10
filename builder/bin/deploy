@@ -7,9 +7,12 @@ program
   .option('--config <config>', 'webpack config file, isRequired')
   .option('--env <env>', 'NODE_ENV', 'production')
   .option('--prefix <prefix>', 'project web url prefix, isRequired')
+  .option('--indexPath <indexPath>', 'project web url prefix', '')
+  .option('--entry <entry>', 'project web url prefix')
   .option('--title <title>', 'web app title', '')
   .option('--analyzer', 'analysis webpack build package, only deploy')
   .option('--tar', 'build tar.gz file, only deploy', true)
+  .option('--electron', 'build electron')
   .action(function(p) {
     p.env = p.env || 'production';
     if (!p.prefix) {

@@ -7,7 +7,10 @@ program
   .option('--config <config>', 'webpack config')
   .option('--env <env>', 'NODE_ENV', 'development')
   .option('--prefix <prefix>', 'app url prefix')
+  .option('--indexPath <indexPath>', 'project web url prefix', '')
+  .option('--entry <entry>', 'project web url prefix')
   .option('--title <title>', 'web title', '')
+  .option('--electron', 'build electron')
   .action(function(p) {
     p.env = p.env || 'development';
     if (!p.prefix) {

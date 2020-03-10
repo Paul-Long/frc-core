@@ -4,8 +4,7 @@ const resolve = require('path').resolve;
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlStaticBeforePlugin = require('html-static-before-plugin');
+const EventPlugin = require('../event-plugin');
 const HappyPack = require('happypack');
 const HappyThreadPool = HappyPack.ThreadPool({
   size: require('os').cpus().length
@@ -16,6 +15,8 @@ const root = resolve(__dirname, '../../../');
 const antTheme = require('./ant');
 exports = module.exports = function({
   prefix,
+  indexPath,
+  entry,
   otherConfig,
   title,
   babelImport,
@@ -48,7 +49,7 @@ exports = module.exports = function({
   function htmlOption(e) {
     return {
       ...otherConfig[e],
-      filename: `index.${e}.html`,
+      filename: `${indexPath}index.${e}.html`,
       writeToDisk: true,
       favicon: `/${asset}favicon.ico`
     };
@@ -62,10 +63,7 @@ exports = module.exports = function({
       publicPath: '/',
       globalObject: 'self'
     },
-    resolve: {
-      // modules: ['node_modules', resolve('./src'), resolve(__dirname, '../node_modules')],
-      // extensions: ['.web.js', '.web.jsx', '.web.ts', '.web.tsx', '.js', '.json', '.jsx', '.ts', '.tsx']
-    },
+    resolve: {},
     externals: {},
     module: {
       rules: [
@@ -114,6 +112,7 @@ exports = module.exports = function({
       ]
     },
     plugins: [
+      new EventPlugin(),
       new CaseSensitivePathsPlugin(),
       new MiniCssExtractPlugin({
         filename: `${asset}css/[name].[hash:8].css`,
@@ -160,20 +159,6 @@ exports = module.exports = function({
         ],
         verboseWhenProfiling: true
       }),
-      new HtmlWebpackPlugin({
-        title,
-        filename: 'index.html',
-        template: resolve(__dirname, 'index.html'),
-        inject: true,
-        minify: {
-          removeComments: false,
-          collapseWhitespace: isDev
-        }
-      }),
-      new HtmlStaticBeforePlugin(htmlOption('dev')),
-      new HtmlStaticBeforePlugin(htmlOption('qa')),
-      new HtmlStaticBeforePlugin(htmlOption('prd')),
-      new HtmlStaticBeforePlugin({...otherConfig[BUILD_ENV]}),
       new CopyWebpackPlugin([
         {
           from: resolve(root, 'src/style/'),
@@ -203,16 +188,8 @@ exports = module.exports = function({
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        base: {
-          test: /[\\/]node_modules[\\/](lodash|antd|fast-table|moment|rc-)/,
-          chunks: 'all',
-          name: 'base',
-          priority: 20
-        },
         commons: {
           chunks: 'all',
-          minChunks: 2,
-          name: 'commons',
           maxInitialRequests: 5,
           priority: 10,
           minSize: 0

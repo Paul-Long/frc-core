@@ -12,6 +12,9 @@ exports = module.exports = function(program) {
       new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin()
     );
   }
+  if (program.electron) {
+    config.config.target = 'electron-renderer';
+  }
   const compiler = webpack(config.config);
   compiler.apply(
     new Progress(function(percentage, msg, current, active, modulepath) {

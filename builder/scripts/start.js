@@ -10,6 +10,9 @@ exports = module.exports = function(program) {
   if (config.option) {
     buildCharts(config.option, function(code) {});
   }
+  if (program.electron) {
+    config.config.target = 'electron-renderer';
+  }
   const compiler = webpack(config.config);
   const server = new Server(compiler, config.config.devServer);
   server.listen(config.config.devServer.port, 'localhost', (err) => {
