@@ -12,6 +12,7 @@ program
   .option('--title <title>', 'web app title', '')
   .option('--analyzer', 'analysis webpack build package, only deploy')
   .option('--tar', 'build tar.gz file, only deploy', true)
+  .option('--eslint', 'eslint check', true)
   .option('--electron', 'build electron')
   .action(function(p) {
     p.env = p.env || 'production';

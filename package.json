@@ -1,6 +1,6 @@
 {
   "name": "frc-core",
-  "version": "1.0.0-beta.23",
+  "version": "1.0.0-beta.25",
   "description": "project initial",
   "main": "index.js",
   "module": "index.d.ts",
@@ -102,6 +102,7 @@
     "@types/react-loadable": "^5.5.2",
     "@types/react-redux": "7.1.0",
     "@types/react-router-dom": "4.3.1",
+    "eslint-loader": "^3.0.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-less": "^4.0.1",

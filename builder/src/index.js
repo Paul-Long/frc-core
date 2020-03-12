@@ -2,14 +2,9 @@
 const fileSize = require('filesize');
 const chalk = require('chalk');
 const fs = require('fs');
-const mkdirp = require('mkdirp');
-const dirname = require('path').dirname;
 const join = require('path').join;
-const resolve = require('path').resolve;
 const merge = require('webpack-merge');
 const spawn = require('win-spawn');
-const Base64 = require('js-base64').Base64;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const _webpackConfig = require('./webpack/webpack.config');
 const _devWebpackConfig = require('./webpack/webpack.config.dev');
 const _prdWebpackConfig = require('./webpack/webpack.config.prd');
@@ -91,6 +86,7 @@ exports.getConfig = function(program) {
     indexPath: program.indexPath,
     title: program.title,
     otherConfig,
+    eslint: program.eslint,
     babelImport: allConfig.babelImport,
     theme: allConfig.theme || {}
   });

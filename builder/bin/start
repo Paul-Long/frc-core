@@ -10,6 +10,7 @@ program
   .option('--indexPath <indexPath>', 'project web url prefix', '')
   .option('--entry <entry>', 'project web url prefix')
   .option('--title <title>', 'web title', '')
+  .option('--eslint', 'eslint check', true)
   .option('--electron', 'build electron')
   .action(function(p) {
     p.env = p.env || 'development';

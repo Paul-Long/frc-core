@@ -10,7 +10,6 @@ const HappyThreadPool = HappyPack.ThreadPool({
   size: require('os').cpus().length
 });
 
-const node_modules = resolve('./node_modules');
 const root = resolve(__dirname, '../../../');
 const antTheme = require('./ant');
 exports = module.exports = function({
@@ -20,6 +19,7 @@ exports = module.exports = function({
   otherConfig,
   title,
   babelImport,
+  eslint,
   theme
 }) {
   const asset = `${prefix}/static/`;
@@ -70,7 +70,6 @@ exports = module.exports = function({
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          enforce: 'pre',
           use: 'happypack/loader?id=js'
         },
         {
@@ -197,5 +196,22 @@ exports = module.exports = function({
       }
     }
   };
+  if (eslint) {
+    config.module.rules.unshift({
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      enforce: 'pre',
+      use: [
+        {
+          loader: 'eslint-loader',
+          options: {
+            fix: true,
+            cache: true
+          }
+        }
+      ],
+      include: [resolve('./src')]
+    });
+  }
   return config;
 };
