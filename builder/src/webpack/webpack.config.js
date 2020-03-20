@@ -189,6 +189,7 @@ exports = module.exports = function({
       cacheGroups: {
         commons: {
           chunks: 'all',
+          test: /[\\/]node_modules[\\/]/,
           maxInitialRequests: 5,
           priority: 10,
           minSize: 0

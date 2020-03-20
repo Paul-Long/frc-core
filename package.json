@@ -1,6 +1,6 @@
 {
   "name": "frc-core",
-  "version": "1.0.0-beta.25",
+  "version": "1.0.0-beta.27",
   "description": "project initial",
   "main": "index.js",
   "module": "index.d.ts",

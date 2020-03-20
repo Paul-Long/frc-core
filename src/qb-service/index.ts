@@ -301,3 +301,26 @@ export const openPage = function(pageInfo: any) {
     console.log(`open qb page ${pageInfo.name}`, res);
   });
 };
+
+export const getLanguage = (success?: SuccessType, failure?: FailType) => {
+  if (!inQb()) {
+    typeof failure === 'function' && (failure as any)();
+    return;
+  }
+  (window as any).tds_getLanguage = function(result: any) {
+    var {language} = result || {};
+    typeof success === 'function' && (success as any)(language);
+  };
+  var reqStr = `["tds_req", [{"req": "eyJ0eXBlIjoidGRzLnJlcS5zeXN0ZW0ubGFuZ3VhZ2UuaW5mbyJ9", "callback": "${Base64.encode('tds_getLanguage')}"}]]`;
+  api(
+    'getLanguage',
+    reqStr,
+    (res) => {
+      console.log(res);
+    },
+    (code, message) => {
+      console.log(code, message);
+      typeof failure === 'function' && (failure as any)();
+    }
+  );
+};
