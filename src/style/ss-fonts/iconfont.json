@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "13634807",
+      "name": "quote-widget",
+      "font_class": "quote-widget",
+      "unicode": "e85c",
+      "unicode_decimal": 59484
+    },
+    {
       "icon_id": "13401161",
       "name": "lock-o",
       "font_class": "lock-o",
