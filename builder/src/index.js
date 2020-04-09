@@ -107,7 +107,12 @@ exports.getConfig = function(program) {
     });
   } else {
     webpackConfig.plugins.unshift(
-      htmlPlugin({otherConfig, prefix: program.prefix, webpackConfig})
+      htmlPlugin({
+        otherConfig,
+        prefix: program.prefix,
+        title: program.title,
+        webpackConfig
+      })
     );
   }
   allConfig.config = merge(webpackConfig, config);

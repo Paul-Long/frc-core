@@ -7,18 +7,21 @@ const Base64 = require('js-base64').Base64;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function write(options) {
-  const {initialState, favicon, filename, outputPath, html, entryName} =
+  const {initialState, favicon, filename, outputPath, html, entryName, title} =
     options || {};
   let assets = options.assets;
   if (typeof assets === 'function') {
     assets = assets({entryName});
   }
   let assetsStr = '';
+  if (title && title !== '') {
+    assetsStr += `<title>${title}</title>`;
+  }
   if (typeof assets === 'string') {
     if (assets.endsWith('.css')) {
-      assetsStr = `<link href="${assets}" rel="stylesheet">`;
+      assetsStr += `<link href="${assets}" rel="stylesheet">`;
     } else if (assets.endsWith('.js')) {
-      assetsStr = `<script src="${assets}"></script>`;
+      assetsStr += `<script src="${assets}"></script>`;
     }
   } else if (assets instanceof Array) {
     assets.forEach((a) => {
@@ -48,9 +51,14 @@ function write(options) {
   return assetsStr;
 }
 
-module.exports = function({otherConfig, webpackConfig, entryName, prefix}) {
+module.exports = function({
+  otherConfig,
+  webpackConfig,
+  entryName,
+  title,
+  prefix
+}) {
   return new HtmlWebpackPlugin({
-    title: '',
     filename: 'index.html',
     template: resolve(__dirname, 'webpack/index.html'),
     alterChunks: function(htmlPluginData, chunks) {
@@ -73,7 +81,8 @@ module.exports = function({otherConfig, webpackConfig, entryName, prefix}) {
           filename,
           entryName,
           outputPath: webpackConfig.output.path,
-          html
+          html,
+          title
         });
       });
       return htmlPluginData;
