@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "14050732",
+      "name": "need-to-ask",
+      "font_class": "need-to-ask",
+      "unicode": "e85d",
+      "unicode_decimal": 59485
+    },
+    {
+      "icon_id": "14050733",
+      "name": "need-to-ask-2",
+      "font_class": "need-to-ask-2",
+      "unicode": "e85e",
+      "unicode_decimal": 59486
+    },
+    {
       "icon_id": "13634807",
       "name": "quote-widget",
       "font_class": "quote-widget",

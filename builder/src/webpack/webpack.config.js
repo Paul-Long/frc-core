@@ -22,7 +22,8 @@ exports = module.exports = function({
   eslint,
   theme
 }) {
-  const asset = `${prefix}/static/`;
+  const prefixPath = prefix && prefix !== '' ? `${prefix}/` : '';
+  const asset = `${prefixPath}static/`;
   const outputPath = resolve('./dist');
   const isDev = process.env.NODE_ENV === 'development';
   const BUILD_ENV = process.env.BUILD_ENV;
