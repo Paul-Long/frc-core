@@ -2,8 +2,7 @@ import App from './src';
 
 export default App;
 
-import * as router from 'react-router-dom';
-export {router};
+import {BrowserRouter, HashRouter, Switch, Route, Link, match, NavLink, Redirect} from 'react-router-dom';
 
 import * as fetch from 'isomorphic-fetch';
 export {fetch};
@@ -24,7 +23,8 @@ export {
   useDispatch,
   useStore,
   DispatchProp,
-  shallowEqual
+  shallowEqual,
+  BrowserRouter, HashRouter, Switch, Route, Link, match, NavLink, Redirect
 };
 import * as QBService from './src/qb-service';
 export {QBService};
