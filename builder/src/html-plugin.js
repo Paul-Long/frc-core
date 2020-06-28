@@ -71,7 +71,7 @@ module.exports = function({
     },
     afterHtmlProcessing: function(htmlPluginData) {
       const html = htmlPluginData.html;
-      ['dev', 'qa', 'prd'].forEach((env) => {
+      Object.keys(otherConfig).forEach((env) => {
         let filename = `index.${env}.html`;
         if (entryName && entryName !== 'index') {
           filename = `${prefix}/html/${entryName}/index.${env}.html`;
