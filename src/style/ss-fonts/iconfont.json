@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15624078",
+      "name": "stacking-bar-chart",
+      "font_class": "stacking-bar-chart",
+      "unicode": "e85f",
+      "unicode_decimal": 59487
+    },
+    {
+      "icon_id": "15624080",
+      "name": "candle-stick-chart",
+      "font_class": "candle-stick-chart",
+      "unicode": "e860",
+      "unicode_decimal": 59488
+    },
+    {
       "icon_id": "14050732",
       "name": "need-to-ask",
       "font_class": "need-to-ask",

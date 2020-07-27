@@ -51,6 +51,5 @@ module.exports = {
   '@radio-button-bg': '#172422',
   '@radio-button-color': '#ffebc8',
   '@radio-button-hover-color': '#172422',
-  '@input-hover-border-color': '#FFB000',
-  '@input-border-color': '#FFB000'
+  '@input-hover-border-color': '#FFB000'
 };
