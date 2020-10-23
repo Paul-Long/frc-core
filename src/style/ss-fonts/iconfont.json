@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "16549831",
+      "name": "microphone-mute",
+      "font_class": "microphone-mute",
+      "unicode": "e861",
+      "unicode_decimal": 59489
+    },
+    {
+      "icon_id": "16549832",
+      "name": "eye-hidden",
+      "font_class": "eye-hidden",
+      "unicode": "e862",
+      "unicode_decimal": 59490
+    },
+    {
+      "icon_id": "16549833",
+      "name": "live-chatroom",
+      "font_class": "live-chatroom",
+      "unicode": "e863",
+      "unicode_decimal": 59491
+    },
+    {
+      "icon_id": "16549834",
+      "name": "live-camera",
+      "font_class": "live-camera",
+      "unicode": "e864",
+      "unicode_decimal": 59492
+    },
+    {
+      "icon_id": "16549835",
+      "name": "live-screen",
+      "font_class": "live-screen",
+      "unicode": "e865",
+      "unicode_decimal": 59493
+    },
+    {
+      "icon_id": "16549836",
+      "name": "microphone",
+      "font_class": "microphone",
+      "unicode": "e866",
+      "unicode_decimal": 59494
+    },
+    {
+      "icon_id": "16549837",
+      "name": "sound-mute",
+      "font_class": "sound-mute",
+      "unicode": "e867",
+      "unicode_decimal": 59495
+    },
+    {
       "icon_id": "15624078",
       "name": "stacking-bar-chart",
       "font_class": "stacking-bar-chart",
