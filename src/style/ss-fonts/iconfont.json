@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "18850247",
+      "name": "beauty-filter",
+      "font_class": "beauty-filter",
+      "unicode": "e869",
+      "unicode_decimal": 59497
+    },
+    {
+      "icon_id": "17985185",
+      "name": "drag-drop",
+      "font_class": "drag-drop",
+      "unicode": "e868",
+      "unicode_decimal": 59496
+    },
+    {
       "icon_id": "16549831",
       "name": "microphone-mute",
       "font_class": "microphone-mute",

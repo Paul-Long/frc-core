@@ -218,8 +218,8 @@ export const reqAttention = (success?: SuccessType, failure?: FailType) => {
     );
   } else {
     (window as any).tds_reqAttention = function(result: any) {
-      var {group} = result || {};
-      typeof success === 'function' && (success as any)(group || []);
+      var {group, finish} = result || {};
+      typeof success === 'function' && (success as any)(group || [], finish);
     };
     var reqStr = `["tds_req", [{"req": "${Base64.encode(
       JSON.stringify({type: 'tds.req.system.attention'})
