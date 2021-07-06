@@ -1,6 +1,6 @@
 {
   "name": "frc-core",
-  "version": "1.0.0-beta.41",
+  "version": "1.0.0-beta.42",
   "description": "project initial",
   "main": "index.js",
   "module": "index.d.ts",
@@ -31,6 +31,8 @@
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
     "@babel/plugin-transform-react-constant-elements": "^7.5.0",

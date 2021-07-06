@@ -150,6 +150,11 @@ exports = module.exports = function({
                 '@babel/plugin-proposal-export-namespace-from',
                 ['@babel/plugin-proposal-decorators', {legacy: true}],
                 ['@babel/plugin-proposal-class-properties', {loose: true}],
+                ['@babel/plugin-proposal-private-methods', {loose: true}],
+                [
+                  '@babel/plugin-proposal-private-property-in-object',
+                  {loose: true}
+                ],
                 '@babel/plugin-syntax-dynamic-import',
                 ...babelImport.map((bi) => ['import', ...bi]),
                 ['@babel/plugin-transform-runtime', {regenerator: true}]
